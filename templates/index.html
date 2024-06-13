@@ -16,8 +16,8 @@
         </form>
         {% if report %}
         <div class="report">
-            <h2>Report for {{ url }}</h2>
-            <p>Status: <span class="{% if report.status == 'up' %}status-up{% else %}status-down{% endif %}">{{ report.status }}</span></p>
+            <h2>Report for {{ report.url }}</h2>
+            <p>Status: <span style="color: {{ 'green' if report.status == 'UP' else 'red' }}">{{ report.status }}</span></p>
             <p>Status Code: {{ report.status_code }}</p>
             {% if report.error %}
             <p>Error: {{ report.error }}</p>

@@ -47,11 +47,3 @@ button:hover {
     padding: 10px;
     background-color: #e9ecef;
 }
-
-.status-up {
-    color: green;
-}
-
-.status-down {
-    color: red;
-}
