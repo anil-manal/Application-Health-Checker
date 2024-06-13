@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Health Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Application Health Checker</h1>
+        <form method="post">
+            <label for="url">Enter Application URL:</label>
+            <input type="text" id="url" name="url" required>
+            <button type="submit">Check Health</button>
+        </form>
+        {% if report %}
+        <div class="report">
+            <h2>Report for {{ url }}</h2>
+            <p>Status: <span class="{% if report.status == 'up' %}status-up{% else %}status-down{% endif %}">{{ report.status }}</span></p>
+            <p>Status Code: {{ report.status_code }}</p>
+            {% if report.error %}
+            <p>Error: {{ report.error }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
